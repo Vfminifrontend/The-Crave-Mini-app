@@ -1,0 +1,8 @@
+page {
+  flex: 1;
+  display: flex;
+  background: #FFFFFF;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24rpx;
+  color: #676767;
+}

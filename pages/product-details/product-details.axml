@@ -1,0 +1,71 @@
+<view class="d-flex flex-direction-col w-100 
+  {{ lang == 'en' ? 'dir-ltr' : 'dir-rtl'}}">
+  <!-- START: SWIPER -->
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{4000}}" indicator-color="#FFFFFF" indicator-active-color="#676767">
+    <block a:for="{{ product.image_src }}">
+      <swiper-item>
+        <image class="w-100 slider-image" src={{ item }} />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- END: SWIPER -->
+
+  <!-- START: CONTAINER -->
+  <container>
+    <view class="d-flex flex-direction-col">
+      <!-- START: UPPER SECTION -->
+      <view class="mb-extra-high">
+        <!-- START: TITLE & SHARE -->
+        <view class="w-100 d-flex justify-content-between mb-small">
+          <view>
+            <text>{{ product.title[lang] }}</text>
+          </view>
+          <view class="share-icon"></view>
+        </view>
+        <!-- END: TITLE & SHARE -->
+        <!-- START: PRICE & RATING-->
+        <view class="d-flex flex-direction-row justify-content-between">
+          <view>
+            <text class="font-bold color-dark">
+              {{ product.currency + product.price }}
+            </text>
+          </view>
+          <view class="d-flex flex-direction-row">
+            <rating score="{{ product.score }}" reviews={{ product.reviews }}></rating>
+          </view>
+        </view>
+        <!-- END: PRICE & RATING-->
+      </view>
+      <!-- END: UPPER SECTION -->
+      <!-- START: SIZE SECTION -->
+      <view>
+        <view class="color-dark mb-small">{{ content.size }}</view>
+        <view class="color-dark price-label">
+          {{ product.size }}
+        </view>
+      </view>
+      <!-- END: SIZE SECTION -->
+    </view>
+  </container>
+  <!-- END: CONTAINER -->
+  <!-- START: ACTION CENTER -->
+  <view class=" w-100 action-center">
+    <view class="w-100 btn-container">
+      <view class="bg-color-light fav-container">
+        <view onTap="editFavourites" class="{{product.favourite ? 'heart-icon-dark' : 'heart-icon'}}">
+        </view>
+      </view>
+      <view class="cart-container 
+          {{product.noAddedToBag > 0 && 'd-flex space-evenly align-items-center'}}">
+        <button a:if="{{product.noAddedToBag == 0}}" onTap="editBag" id="add" class="bg-color-dark color-light font-lg">{{ content.addBtn }}</button>
+        <button onTap="editBag" id="minus" a:if="{{product.noAddedToBag > 0}}" size="default" class="plus-minus-btn mouse-pointer">-</button>
+        <view a:if="{{product.noAddedToBag > 0}}" class="color-dark font-lg">
+          {{ product.noAddedToBag}}
+        </view>
+        <button onTap="editBag" id="plus" a:if="{{product.noAddedToBag > 0}}" size="default" class="plus-minus-btn mouse-pointer">+</button>
+        <button onTap="goToBag" id="redirectToBag" a:if="{{product.noAddedToBag > 0}}" size="default" class="bg-color-danger redirect-btn mouse-pointer font-lg">{{content.goToBag}}</button>
+
+      </view>
+    </view>
+  </view>
+  <!-- END: ACTION: CENTER -->

@@ -1,0 +1,17 @@
+.font-bold{
+  font-weight: bold
+}
+.no-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size:x-large; 
+  color: #9C9C9C ;
+
+}
+.heart-icon {
+  width: 70rpx;
+  height: 70rpx;
+  background-image: url('/assets/svg/heart/empty-heart.svg');
+  background-size: cover;
+}

@@ -1,0 +1,7 @@
+.radio {
+  margin-inline-end: 10rpx;
+}
+
+.radio-group {
+  margin-inline-start: 20rpx
+}

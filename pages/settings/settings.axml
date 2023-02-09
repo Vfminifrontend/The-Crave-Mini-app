@@ -1,0 +1,21 @@
+<scroll-view class="d-flex flex-direction-col w-100 
+  {{ language === 'ar' ? 'dir-rtl' : 'dir-ltr'}}" style="height: 100vh" scroll-y="true" onScroll="scrollHandler">
+  <view class="mt-high w-100">
+    <image class="banner-dimensions" lazyLoad="true" mode="scaleToFill" src="/assets/images/settings.jpg"/>
+  </view>
+  <container>
+    <view class="d-flex flex-direction-col">
+      <text class="color-dark font-lg mb-high">{{content.language}}</text>
+      <radio-group class="radio-group" onChange="langChange">
+        <label class="mb-small d-block">
+          <radio class="radio" value="en" checked="{{language == 'en'}}"/>English
+        </label>
+        <label class="mb-md">
+          <radio class="radio" value="ar" checked="{{language == 'ar'}}"/>عربي
+        </label>
+      </radio-group>
+    </view>
+  </container>
+  <tab-bar activeTab="{{3}}" customStyle="{{ 
+    hideTapBar ? 'tapbar-hide-with-transition' : 'tapbar-show-with-transition'}}" lang="{{language}}" tabs="{{tabBarData}}"></tab-bar>
+</scroll-view>

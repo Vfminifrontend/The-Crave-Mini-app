@@ -1,0 +1,4 @@
+    <view class="bg-color-smooth categories-item me-medium mouse-pointer d-flex" onTap="onTap">
+      <text class="{{closeIcon ? 'me-medium':''}}">{{category}}</text>
+      <view a:if="{{closeIcon}}" class="close-icon mouse-pointer"></view>
+    </view>

@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/products/products",
+    "pages/favourites/favourites",
+    "pages/cart/cart",
+    "pages/product-details/product-details",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "defaultTitle": "My App"
+  }
+}

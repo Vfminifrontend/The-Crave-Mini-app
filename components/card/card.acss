@@ -1,0 +1,56 @@
+.dimensions {
+  height: 300rpx;
+  width: 33%;
+}
+
+.circle-icon {
+  width: 14px;
+  height: 14px;
+  background-image: url('/assets/svg/circle.svg');
+  background-size: cover;
+}
+
+.empty-heart-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url('/assets/svg/heart/empty-heart.svg');
+  background-size: cover;
+}
+
+.filled-heart-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url('/assets/svg/heart/filled-heart.svg');
+  background-size: cover;
+}
+
+.bag-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url('/assets/svg/bag-plus.svg');
+  background-size: cover;
+}
+
+.w-67 {
+  width: 67%
+}
+
+.mt-auto {
+  margin-top: auto
+}
+
+.dot {
+  height: 25rpx;
+  width: 25rpx;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bagSize {
+  justify-content: center;
+  align-items: center;
+  width: 120rpx;
+  height: 50rpx;
+  border-radius: 40%;
+  background-color: rgb(231, 231, 231);
+}

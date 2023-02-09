@@ -1,0 +1,18 @@
+.star-icon{
+  width: 14px;
+  height: 14px;
+  background-image: url('/assets/svg/star/filled-star.svg');
+  background-size: cover;
+}
+.half-star-icon{
+  width: 14px;
+  height: 14px;
+  background-image: url('/assets/svg/star/half-star.svg');
+  background-size: cover;
+}
+.empty-star-icon{
+  width: 14px;
+  height: 14px;
+  background-image: url('/assets/svg/star/empty-star.svg');
+  background-size: cover;
+}

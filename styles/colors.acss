@@ -1,0 +1,23 @@
+.color-light {
+  color: #FFFFFF;
+}
+
+.color-secondary {
+  color: #9C9C9C;
+}
+
+.color-primary {
+  color: #676767;
+}
+
+.color-dark {
+  color: #161616;
+}
+
+.color-danger {
+  color: #F35A4F;
+}
+
+.color-warning {
+  color: #F7D01E;
+}

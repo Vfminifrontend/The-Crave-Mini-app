@@ -1,0 +1,15 @@
+.font-sm {
+  font-size: 20rpx;
+}
+
+.font-md {
+  font-size: 22rpx;
+}
+
+.font-regular {
+  font-size: 24rpx;
+}
+
+.font-lg {
+  font-size: 28rpx;
+}

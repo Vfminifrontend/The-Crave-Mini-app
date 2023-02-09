@@ -1,0 +1,29 @@
+.tabBar {
+  height: 120rpx;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  bottom:0;
+  box-shadow: -4px 4px 4px 4px #9C9C9C;
+}
+.tab-item {
+  width:25%;
+  height:120rpx;
+  justify-content:center;
+  align-items:center
+}
+.active{
+  background-color:#F1F1F1;
+  font-weight: bold;
+}
+.icon-dimensions{
+  width:50rpx; height:50rpx
+}
+.note {
+  position: absolute;
+  top: 5rpx;
+  right: 40rpx;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,43 @@
+<scroll-view class="d-flex flex-direction-col w-100 
+  {{ language === 'ar' ? 'dir-rtl' : 'dir-ltr'}}" style="height: 100vh" scroll-y="true" onScroll="scrollHandler">
+  <container>
+    <view class="flex-column">
+      <view class="dropdown">
+        <view class="dropdown-item">
+          <text class="font-bold color-dark me-small">{{ content.sortingBar.sort }}</text>
+          <view class="menu-icon mt-small"/>
+        </view>
+        <view class="dropdown-item">
+          <text class="me-small">{{ content.sortingBar.categories }}</text>
+          <view class="menu-icon mt-small"/>
+        </view>
+        <view class="dropdown-item">
+          <text class="me-small">{{ content.sortingBar.room }}</text>
+          <view class="menu-icon mt-small"/>
+        </view>
+        <view class="dropdown-item">
+          <text class="me-small">{{ content.sortingBar.filter }}</text>
+          <view class="filter-icon mt-small"/>
+        </view>
+      </view>
+      <scroll-view class="mt-high d-flex" scroll-left="{{ language === 'ar' ? 1000 : 0}}" scroll-x="{{true}}">
+        <view a:for="{{content.categories}}" key="{{item.content}}">
+          <top-categories category={{item.content}} onTap="initFilterCategory"></top-categories>
+        </view>
+      </scroll-view>
+      <scroll-view class="mt-low d-flex flex-wrap">
+        <view a:for="{{chosenCategories}}" key="{{item}}" class="bg-color-smooth mt-high categories-item me-medium d-flex">
+          <top-categories closeIcon="{{true}}" category={{item}} onTap="deleteAndResetChosenCategory"></top-categories>
+        </view>
+      </scroll-view>
+       <view class='userinfo'> {{content.userinfo}}: {{userinfo}}</view>
+
+      <view class="mt-high" a:for="{{filtered}}">
+
+        <card onUpdateTabBar="updateTabBarData" product="{{item}}" lang="{{language}}"></card>
+      </view>
+    </view>
+  </container>
+  <tab-bar activeTab="{{0}}" customStyle="{{ 
+    hideTapBar ? 'tapbar-hide-with-transition' : 'tapbar-show-with-transition'}}" lang="{{language}}" tabs="{{tabBarData}}"></tab-bar>
+</scroll-view>

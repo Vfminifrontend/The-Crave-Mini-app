@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "container": "mini-ali-ui/es/container/index",
+    "tab-bar": "/components/tabBar/tabBar"
+  },
+  "defaultTitle": "Settings" 
+}

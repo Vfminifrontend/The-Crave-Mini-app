@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "container": "mini-ali-ui/es/container/index",
+    "top-categories": "/pages/products/components/top-categories/top-categories",
+    "card": "/components/card/card",
+    "tab-bar": "/components/tabBar/tabBar"
+  },
+  "defaultTitle": "Home"
+  
+}

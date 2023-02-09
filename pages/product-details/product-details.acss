@@ -1,0 +1,81 @@
+.slider-image {
+  display: block;
+  height: 69vh;
+}
+
+.share-icon {
+  width: 15px;
+  height: 15px;
+  background-image: url("/assets/svg/share.svg");
+  background-size: cover;
+}
+
+.price-label {
+  border: 3rpx solid #161616;
+  padding: 10rpx 35rpx;
+  border-radius: 999rpx;
+  width: min-content;
+}
+
+.action-center {
+  /* border-top: 1px solid gray; */
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  box-shadow: -4px 4px 4px 4px #9c9c9c;
+}
+
+.btn-container {
+  display: flex;
+  padding: 10rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.fav-container {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-container {
+  width: 85%;
+}
+
+button {
+  border: none;
+  border-radius: 0;
+}
+
+.heart-icon,
+.heart-icon-dark,
+.bag-icon {
+  width: 45rpx;
+  height: 45rpx;
+  background-size: cover;
+}
+
+.heart-icon {
+  background-image: url("/assets/svg/heart/empty-heart.svg");
+}
+
+.heart-icon-dark {
+  background-image: url("/assets/svg/heart/filled-heart.svg");
+}
+
+.bag-icon {
+  background-image: url("/assets/svg/bag-plus.svg");
+}
+
+.plus-minus-btn {
+  padding: 0 45rpx 0 45rpx;
+  border: 3rpx solid #676767;
+  border-radius: 30rpx;
+  line-height: 235%;
+}
+
+.redirect-btn {
+  color: #ffffff;
+  padding: 0 25rpx 0 25rpx;
+  border-radius: 5rpx;
+}

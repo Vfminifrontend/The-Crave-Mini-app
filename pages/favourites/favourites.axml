@@ -1,0 +1,25 @@
+<scroll-view class="d-flex flex-direction-col w-100 
+  {{ language === 'ar' ? 'dir-rtl' : 'dir-ltr'}}" style="height: 100vh" scroll-y="true" onScroll="scrollHandler">
+  <view class="mt-high w-100">
+    <image class="banner-dimensions" lazyLoad="true" mode="scaleToFill" src="/assets/images/favs.jpg"/>
+  </view>
+  <container>
+    <view class="flex-direction-col">
+      <view a:if="{{products.length > 0}}" class="ms-low mb-high mt-medium">
+        <text class="font-bold color-dark">{{products.length}} {{content.items}}</text>
+      </view>
+      <view a:if="{{products.length > 0}}" class="mt-high" a:for="{{products}}">
+        <card lang="{{language}}" onUpdateTabBar="updateTabBarData" onClick="editFavourites" product="{{item}}"></card>
+      </view>
+      <view a:if="{{products.length === 0}}" class="font-bold no-product">
+        <text class="mt-high">{{content.noFavourites}}</text>
+      </view>
+    </view>
+  </container>
+  <tab-bar 
+    activeTab="{{2}}" 
+    customStyle="{{ 
+    hideTapBar ? 'tapbar-hide-with-transition' : 'tapbar-show-with-transition'}}"
+    lang="{{language}}" tabs="{{tabBarData}}"
+   ></tab-bar>
+</scroll-view>

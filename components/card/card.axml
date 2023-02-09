@@ -1,0 +1,28 @@
+<view class="d-flex">
+  <image mode="aspectFill" src="{{
+    currentProduct ? currentProduct.image_src[0] : product.image_src[0]
+  }}" onTap="navigateToProductDetails" class="dimensions mouse-pointer me-medium"/>
+  <view class="d-flex flex-direction-col w-67">
+    <text onTap="navigateToProductDetails" class="mouse-pointer">{{currentProduct ? currentProduct.title[lang] : product.title[lang]}}</text>
+    <text class="mt-medium font-bold color-dark">{{product.currency}}{{product.price}}</text>
+    <view a:if="{{isContainColors}}" class="mt-medium d-flex me-small">
+      <view a:for="{{currentProduct ? currentProduct.colorList : product.colorList }}" class="dot me-high" style="background-color:{{item}}"></view>
+    </view>
+    <view a:if="{{bagSize}}" class="bagSize mt-medium d-flex" >
+      {{product.noAddedToBag}}
+    </view>
+    <view class="d-flex justify-content-between mt-auto">
+      <view class="mt-medium d-flex me-small">
+        <rating score="{{currentProduct ? currentProduct.score : product.score}}" reviews = {{currentProduct ? currentProduct.reviews : product.reviews}}></rating>
+      </view>
+      <view a:if="{{cardIcons}}" class="mt-medium d-flex">
+        <view onTap="editFavourites" class="{{
+          currentProduct ?
+          (currentProduct.favourite ? 'filled-heart-icon' : 'empty-heart-icon') : 
+          (product.favourite ? 'filled-heart-icon' : 'empty-heart-icon')
+          }} me-high"></view>
+        <view onTap="editBag" class="bag-icon me-medium"></view>
+      </view>
+    </view>
+  </view>
+</view>

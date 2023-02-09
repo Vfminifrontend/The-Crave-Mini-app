@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "container": "mini-ali-ui/es/container/index",
+    "card": "/components/card/card",
+    "tab-bar": "/components/tabBar/tabBar"
+  },
+  "defaultTitle": "Bag"
+  
+}

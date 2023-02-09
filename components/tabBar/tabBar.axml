@@ -1,0 +1,9 @@
+<view class="tabBar {{customStyle}}">
+  <flex >
+    <view onTap="handleTabClick" id={{index}} a:for="{{tabs}}" class="{{activeTab === index ? 'active' : ''}} d-flex flex-direction-col tab-item mouse-pointer position-relative">
+      <image mode="scaleToFill" src="{{item.iconSrc}}" class="icon-dimensions"/>
+      <text class="me-small font-lg mt-medium">{{item.title[lang]}}</text>
+      <text a:if="{{item.note > 0}}" class="note d-flex align-items-center justify-content-center bg-color-danger color-light">{{item.note}}</text>
+    </view>
+  </flex>
+</view>

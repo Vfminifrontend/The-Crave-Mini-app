@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "container": "mini-ali-ui/es/container/index",
+    "rating": "../../components/rating/rating"
+  },
+  "defaultTitle": "Product Details"
+}

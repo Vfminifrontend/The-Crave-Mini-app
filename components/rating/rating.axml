@@ -1,0 +1,5 @@
+<view a:for="{{stars}}" key="{{item}}">
+  <view a:if="{{ index+1 <= score }}" class="star-icon me-small"></view>
+  <view a:if="{{ index+1 > score }}" class="empty-star-icon me-small"></view>
+</view>
+<text class="font-sm color-secondary">({{reviews}})</text>
