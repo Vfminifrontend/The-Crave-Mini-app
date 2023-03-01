@@ -25,33 +25,38 @@ Component({
       });
     },
     editFavourites() {
-      const productToBeConsidered =
-        this.data.currentProduct || this.props.product;
-      app.editFavourites(productToBeConsidered);
-      if(this.props.onUpdateTabBar) {
-        this.props.onUpdateTabBar();
-      }
-      if (!this.props.onClick) {
-        this.setData({
-          ...this.data,
-          currentProduct: {
-            ...productToBeConsidered,
-            favourite: !productToBeConsidered.favourite
-          }
-        });
-      } else {
-        return this.props.onClick();
-      }
+      // const productToBeConsidered =
+      //   this.data.currentProduct || this.props.product;
+      // app.editFavourites(productToBeConsidered);
+      // if(this.props.onUpdateTabBar) {
+      //   this.props.onUpdateTabBar();
+      // }
+      // if (!this.props.onClick) {
+      //   this.setData({
+      //     ...this.data,
+      //     currentProduct: {
+      //       ...productToBeConsidered,
+      //       favourite: !productToBeConsidered.favourite
+      //     }
+      //   });
+      // } else {
+      //   return this.props.onClick();
+      // }
+      app.getUserInfo().then((res) => {
+        my.alert({ content: "Msisdn is: " + res.msisdn })
+      }).catch((err) => {
+        my.alert({ content: "Error is: " + err })
+      })
     },
     editBag() {
       my.tradePay({
         tradeNO: '201711152100110410533667792', // get the tradeNo from the server first
         success: (res) => {
-          if(res.resultCode === "9000"){
-            my.alert({content:"payment suceeded"})
+          if (res.resultCode === "9000") {
+            my.alert({ content: "payment suceeded" })
           }
           else {
-            my.alert({content:"payment failed "+res.resultCode})
+            my.alert({ content: "payment failed " + res.resultCode })
           }
         },
         fail: (res) => {

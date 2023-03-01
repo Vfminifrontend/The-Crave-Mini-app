@@ -1,4 +1,5 @@
 import jwt_decode from "jwt-decode";
+import { requestTime } from '../../utils/utils'
 const app = getApp();
 Page({
   data: {
@@ -76,6 +77,37 @@ Page({
       hideTapBar
     });
   },
+  scan() {
+    my.scan({
+      type: 'qr',
+      success: (res) => {
+        my.alert({ title: res.code });
+      },
+    });
+  },
+  onGetAuthorize() {
+    my.getAuthCode({
+      success: (res) => {
+        console.info(authcode);
+
+        my.getAuthUserInfo({
+          scopes: ['auth_user'],
+          success: (res) => {
+            this.userInfo = res;
+            my.alert({ content: "get user success: " + res })
+          },
+          fail: (res) => {
+            my.alert({ content: "get user error: " + res })
+          },
+        });
+        my.alert({ content: "get authcode success: " + res })
+
+      },
+      fail: (res) => {
+        my.alert({ content: "get authcode error: " + res })
+      },
+    });
+  },
   onLoad(query) {
     // Page load
 
@@ -97,91 +129,65 @@ Page({
       chosenCategories: [],
       tabBarData: app.tabBarData,
     });
-    // app.getUserInfo().then((res) => {
-    //   this.setData({
-    //     ...this.data,
-    //     userinfo: res.msisdn
-
-    //   });
-    // }).catch((err) => {
-    //   my.alert({ content: err })
-    // })
-    // my.showLoading();
+    //this.scan();
+    //my.showLoading();
+    let time = requestTime()
     my.getAuthCode({
       scopes: ['username'],
       success: (res) => {
-        //my.alert({ content: 'authcode is: ' + res.authCode });
-        this.$batchedUpdates(() => {
-          my.request({
-
-            url: 'https://web.vodafone.com.eg/auth/realms/vf-realm/protocol/openid-connect/token',
-            method: 'POST',
-            headers: {
-              'content-type': 'application/x-www-form-urlencoded',
-            },
-            data: {
-              grant_type: 'authorization_code',
-              code: res.authCode,
-              client_id: 'loginpoc',
-              redirect_uri: 'https://web.vodafone.com.eg/ar/home'
-            },
-            dataType: 'json',
-            success: (res) => {
-              //my.hideLoading();
-              //my.alert({ content: 'token success: ' + res.data.access_token });
-              let decoded = jwt_decode(res.data.access_token);
-              if (decoded) {
-                this.setData({
-                  ...this.data,
-                  userinfo: decoded.msisdn
-
-                });
-                my.alert({ content: 'Login Success ! Welcome :' + decoded.msisdn});
-              };
-
-            },
-
-            fail: (res) => {
-              // my.hideLoading();
-              // let token = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQjEwblo5OWtVbEY0UDVzYzVKNXR2amY2MFpkc08tbFFZN19yWjI1UjdBIn0.eyJleHAiOjE2NzQ3NDE3NTAsImlhdCI6MTY3NDczOTk1MCwianRpIjoiMDg4MWUwYmItZjM4MC00ZTI3LTg1NGYtNWRlZWU3OGMxMWZhIiwiaXNzIjoiaHR0cHM6Ly93ZWIudm9kYWZvbmUuY29tLmVnL2F1dGgvcmVhbG1zL3ZmLXJlYWxtIiwic3ViIjoiZjpkMmMxYmZlMC04MWQyLTQ1YTMtYTdlZC0zMzA1OGI2MDM3MjA6MTAwMjQ2NTg5NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImxvZ2lucG9jIiwic2Vzc2lvbl9zdGF0ZSI6ImI1ZGU1YTk1LTNlZTAtNGQ0MS1iZDRiLTQxNDYyNDU3N2M1NiIsInNjb3BlIjoidXNlcm5hbWUiLCJzaWQiOiJiNWRlNWE5NS0zZWUwLTRkNDEtYmQ0Yi00MTQ2MjQ1NzdjNTYiLCJtc2lzZG4iOiIxMDAyNDY1ODk2In0.wWOH6HOcHkfsiOSoKvOwx-OsfFlSgCGHw-YjXVF_IlE1ovN66SCIOTEdCi_wxtjeTOvSzIKkPAL9CtDW08W3i3yZwWjqqXwwEz_GGydh1DGqBmk1GaX3xMW_G0cAJOF1K-m5pJP5Dkoor6_GBxwG8uxNscLpGUkevGHipTioHQp31-jFKtTkqyIp5zP4krwDbApjlPAz0GoQSh-5nBxh68dSmm7J122i5ylOo4sRZEEvykySM79LEkcLETjEv6sLwHcyDeZaOR5vSnyzXxseBxgHPFsl2tvPM5-OQttf8N8caiYB7htezXUnNsZ7Is-W_OoV7xayGjGI4NosmTS6Qg'
-              // let decoded = jwt_decode(token);
-              // this.setData({
-                //   ...this.data,
-                //   userinfo: decoded.msisdn
-                
-                // });
-                my.alert({ content: '/token api failed: ' + res.data.error_description });
-                
-              }
-            })
-          });
-        },
-        fail: (res) => {
-          // my.hideLoading();
-          // let token = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQjEwblo5OWtVbEY0UDVzYzVKNXR2amY2MFpkc08tbFFZN19yWjI1UjdBIn0.eyJleHAiOjE2NzQ3NDE3NTAsImlhdCI6MTY3NDczOTk1MCwianRpIjoiMDg4MWUwYmItZjM4MC00ZTI3LTg1NGYtNWRlZWU3OGMxMWZhIiwiaXNzIjoiaHR0cHM6Ly93ZWIudm9kYWZvbmUuY29tLmVnL2F1dGgvcmVhbG1zL3ZmLXJlYWxtIiwic3ViIjoiZjpkMmMxYmZlMC04MWQyLTQ1YTMtYTdlZC0zMzA1OGI2MDM3MjA6MTAwMjQ2NTg5NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImxvZ2lucG9jIiwic2Vzc2lvbl9zdGF0ZSI6ImI1ZGU1YTk1LTNlZTAtNGQ0MS1iZDRiLTQxNDYyNDU3N2M1NiIsInNjb3BlIjoidXNlcm5hbWUiLCJzaWQiOiJiNWRlNWE5NS0zZWUwLTRkNDEtYmQ0Yi00MTQ2MjQ1NzdjNTYiLCJtc2lzZG4iOiIxMDAyNDY1ODk2In0.wWOH6HOcHkfsiOSoKvOwx-OsfFlSgCGHw-YjXVF_IlE1ovN66SCIOTEdCi_wxtjeTOvSzIKkPAL9CtDW08W3i3yZwWjqqXwwEz_GGydh1DGqBmk1GaX3xMW_G0cAJOF1K-m5pJP5Dkoor6_GBxwG8uxNscLpGUkevGHipTioHQp31-jFKtTkqyIp5zP4krwDbApjlPAz0GoQSh-5nBxh68dSmm7J122i5ylOo4sRZEEvykySM79LEkcLETjEv6sLwHcyDeZaOR5vSnyzXxseBxgHPFsl2tvPM5-OQttf8N8caiYB7htezXUnNsZ7Is-W_OoV7xayGjGI4NosmTS6Qg'
-          // let decoded = jwt_decode(token);
-          // this.setData({
-            //   ...this.data,
-            //   userinfo: decoded.msisdn
-            
-            // });
-            
-            my.alert({content: "fail can't get auhcode"});
+        my.request({
+          url: 'https://test1.vodafone.com.eg/services/dxl/v2/authorizations/applyToken',
+          method: 'POST',
+          headers: {
+            'Request-Time': `${time}`,
+            'Client-Id': 'miniprg',
+            'Signature': '3333010071465913xxxddsdaasddzzxxx'
           },
+          data: {
+            grantType: 'authorization_code',
+            authCode: res.authCode,
+            authClientId: 'miniprg',
+            appId: app.appId
+          },
+          dataType: 'json',
+          success: (res) => {
+            //my.alert({ content: "Token api succeded" + res });
+            my.request({
+              url: 'https://test1.vodafone.com.eg/services/dxl/v2/users/inquiryUserInfo',
+              method: 'POST',
+              headers: {
+                'Request-Time': `${time}`,
+                'Signature': '3333010071465913xxxddsdaasddzzxxx'
+              },
+              data: {
+                accessToken: res.accessToken,
+                authClientId: 'miniprg',
+                appId: app.appId
+              },
+              dataType: 'json',
+              success: (res) => {
+                my.alert({ content: "user info api succeded" + res.userInfo.msisdn });
+    
+              },
+              fail: (err) => {
+                console.log({ err })
+                my.alert({ content: "user info api failed" });
+              }
+            });
+
+          },
+          fail: (err) => {
+            console.log({ err })
+            my.alert({ content: "Token api failed" });
+          }
+        });
+      },
+      fail: (res) => {
+        my.alert({ content: "fail can't get auhcode" });
+      },
     });
 
-
     // Page display
-
-    // my.setStorage({
-    //   key: 'token',
-    //   data: decoded,
-    // });
-
-
-
-
-
   },
   onHide() {
     // Page hidden

@@ -14,6 +14,9 @@ App({
   favNo: 0,
   tabBarData: [],
   userInfo: null,
+  memberInfo: null,
+  appId:'',
+
   onLaunch(options) {
     // Page opens for the first time
     this.setLanguage("en");
@@ -22,9 +25,13 @@ App({
     this.initializeBag();
     this.getNoOfBag();
     this.getTabBarData();
+    this.setAppId();
   },
   onShow(options) {
     // Reopened by scheme from the background
+  },
+  setAppId(){
+    this.appId = my.getAppIdSync().appId;
   },
   setLanguage(lang) {
     (this.language = lang), (this.content = this.language == "en" ? en : ar);
@@ -75,16 +82,35 @@ App({
   getTabBarData() {
     this.tabBarData = getTabs(this.bagNo, this.favNo);
   },
+  getMemberInfo() {
+    return new Promise((resolve, reject) => {
+      my.getOpenUserInfo({
+        fail: (res) => {
+          my.alert({ content: res })
+        },
+        success: (res) => {
+          let userInfo = JSON.parse(res.response).response
+          my.alert({ content: res.nickname })
+        }
+      });
+    })
+  },
+  async getTokenApi() {
+    return new Promise((resolve, reject) => {
+
+    })
+  },
   getUserInfo() {
     return new Promise((resolve, reject) => {
       if (this.userInfo)
         resolve(this.userInfo);
       // Call user authorization API to get user info
-      my.getAuthCode({
+       my.getAuthCode({
         scopes: ['username'],
         success: (res) => {
-          my.request({
-            url: 'https://web.vodafone.com.eg/auth/realms/vf-realm/protocol/openid-connect/token',
+          console.log("i entered success")
+           my.request({
+            url: 'https://test1.vodafone.com.eg/services/dxl/v2/authorizations/applyToken',
             method: 'POST',
             headers: {
               'content-type': 'application/x-www-form-urlencoded',
@@ -92,11 +118,12 @@ App({
             data: {
               grant_type: 'authorization_code',
               code: res.authCode,
-              client_id: 'loginpoc',
-              redirect_uri: 'https://web.vodafone.com.eg/ar/home'
+              client_id: 'miniprg',
+              redirect_uri: 'https://test1.vodafone.com.eg/ar/home'
             },
             dataType: 'json',
             success: (res) => {
+              console.log({ res })
               let decoded = jwt_decode(res.data.access_token);
               if (decoded) {
                 this.userInfo = decoded
@@ -104,11 +131,12 @@ App({
               };
             },
             fail: (err) => {
-              reject('token api failed:' + err.data.error_description)
+              console.log({ err })
+               reject('token api failed:' + err.data.error_description)
             }
           });
           this.userInfo = res;
-          resolve(res);
+          //resolve(res);
         }, fail: (err) => {
           reject('get authcode failed:' + err)
         },
