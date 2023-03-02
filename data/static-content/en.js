@@ -11,24 +11,28 @@ const en = {
       { content: "New" },
       { content: "Hot Deals" },
       { content: "Top Rated" },
-      { content: "Electronics" },
-      { content: "Accessories" }
+      { content: "Soup" },
+      { content: "Salad" },
+      { content: "Sandwich" },
+      { content: "Strips" },
+      { content: "Burger" },
+      { content: "Pasta" },
     ]
   },
   productDetails: {
-    addBtn: "ADD TO BAG",
+    addBtn: "ADD TO ORDER",
     size: "Size",
-    goToBag: "Go to Bag"
+    goToBag: "Go to order"
   },
   tabBar: {
     home: "Home",
-    cart: "Cart",
+    cart: "Order",
     fav: "Fav",
     setting: "Setting"
   },
   addToBagAlert: {
-    title: "Successfully added to bag!",
-    content: "Would you like to go to bag?",
+    title: "Successfully added to order!",
+    content: "Would you like to go to order?",
     confirmButtonText: "Yes",
     cancelButtonText: "No"
   },
@@ -37,7 +41,8 @@ const en = {
   },
   cart: {
     theCartEmpty: "The cart is empty",
-    items: "items"
+    items: "items",
+    payment:"payment"
   },
   favourites: {
     noFavourites: "No favourites",

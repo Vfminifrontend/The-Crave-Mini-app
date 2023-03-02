@@ -14,6 +14,13 @@
       <view a:if="{{products.length === 0}}" class="font-bold no-product">
         <text class="mt-high">{{content.theCartEmpty}}</text>
       </view>
+      <view>
+        <button  
+          onTap="onPayment" 
+          class="bg-color-dark color-light font-lg mt-high"
+          >{{content.payment}}
+        </button>
+      </view>
     </view>
   </container>
   <tab-bar 

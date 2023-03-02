@@ -11,8 +11,8 @@ const getTabs = (cart, fav) => {
     },
     {
       title: {
-        en: "Bag",
-        ar: "الحقيبة"
+        en: "Order",
+        ar: "الطلب"
       },
       iconSrc: "/assets/svg/bag-plus.svg",
       navigatePage: "/pages/cart/cart",

@@ -9,6 +9,24 @@ Page({
     noOfItems: 0,
     tabBarData: []
   },
+  onPayment(){
+    my.tradePay({
+      tradeNO: '201711152100110410533667792', // get the tradeNo from the server first
+      success: (res) => {
+        if (res.resultCode === "9000") {
+          my.alert({ content: "payment suceeded" })
+        }
+        else {
+          my.alert({ content: "payment failed " + res.resultCode })
+        }
+      },
+      fail: (res) => {
+        my.alert({
+          content: JSON.stringify(res),
+        });
+      }
+    });
+  },
   scrollHandler(event) {
     let hideTapBar;
     // hide tapbar while scrolling down

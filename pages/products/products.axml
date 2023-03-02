@@ -30,14 +30,7 @@
           <top-categories closeIcon="{{true}}" category={{item}} onTap="deleteAndResetChosenCategory"></top-categories>
         </view>
       </scroll-view>
-       <view class='userinfo'> {{content.userinfo}}: {{userinfo}}</view>
-      <view>
-        <button  
-          onTap="onGetAuthorize" 
-          class="bg-color-dark color-light font-lg"
-          >Authorize
-        </button>
-      </view>
+      <view class='userinfo'> {{content.userinfo}}: {{userinfo}}</view>
       <view class="mt-high" a:for="{{filtered}}">
         <card onUpdateTabBar="updateTabBarData" product="{{item}}" lang="{{language}}"></card>
       </view>

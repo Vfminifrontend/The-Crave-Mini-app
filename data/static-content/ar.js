@@ -12,24 +12,28 @@ const ar = {
       { content: "جديد" },
       { content: "آخر العروض" },
       { content: "الأعلى ترتيبًا" },
-      { content: "إلكترونيات" },
-      { content: "اكسسوارات" }
+      { content: "حساء" },
+      { content: "سلطة" },
+      { content: "ساندويتش" },
+      { content: "شرائط" },
+      { content: "برجر" },
+      { content: "معكرونة" },
     ]
   },
   productDetails: {
-    addBtn: "أضف إلى الحقيبة",
+    addBtn: "أضف إلى الطلب",
     size: "المقاس",
-    goToBag: "الذهاب إلى الحقيبة"
+    goToBag: "الذهاب إلى الطلب"
   },
   tabBar: {
     home: "الرئيسية",
-    cart: "عربة",
+    cart: "الطلب",
     fav: "المفضل",
     setting: "ضبط"
   },
   addToBagAlert: {
-    title: "تمت الإضافة إلى الحقيبة بنجاحٍ",
-    content: "هل تود الذهاب إلى الحقيبة؟",
+    title: "تمت الإضافة إلى الطلب بنجاحٍ",
+    content: "هل تود الذهاب إلى الطلب؟",
     confirmButtonText: "نعم",
     cancelButtonText: "لا"
   },
@@ -38,7 +42,8 @@ const ar = {
   },
   cart: {
     theCartEmpty: "العربة فارغة",
-    items: "عناصر"
+    items: "عناصر",
+    payment:"الدفع"
   },
   favourites: {
     noFavourites: "لا مفضلات",

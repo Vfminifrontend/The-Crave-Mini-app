@@ -4,6 +4,6 @@
     "card": "/components/card/card",
     "tab-bar": "/components/tabBar/tabBar"
   },
-  "defaultTitle": "Bag"
+  "defaultTitle": "Order"
   
 }

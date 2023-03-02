@@ -1,179 +1,213 @@
 const products = [
   {
-    id: "BED",
+    id: "ChickenSoup",
     title: {
-      en: "Samsung",
-      ar: "سامسونج"
+      en: "Chicken soup",
+      ar: "حساء الدجاج"
     },
-    colorList: ["red", "yellow", "green"],
     price: "56.00",
     currency: "LE",
     image_src: [
-      "/assets/images/mobile1.jpeg",
-      "/assets/images/mobile1.jpeg",
-      "/assets/images/mobile1.jpeg",
-      "/assets/images/mobile1.jpeg",
+      "/assets/images/Chicken_soup.png",
+      "/assets/images/Chicken_soup.png",
+      "/assets/images/Chicken_soup.png",
+      "/assets/images/Chicken_soup.png",
     ],
     score: 3,
     reviews: "500+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['New', 'Hot Deals', 'Top Rated']
+    categories:['New', 'Hot Deals', 'Top Rated', 'Soup']
   },
   {
-    id: "UPPERBLANKET",
+    id: "OnionSoup",
     title: {
-      en: "Air-Pods",
-      ar: " سماعات لاسيلكيه"
+      en: "Onion soup",
+      ar: "حساء البصل"
     },
-    colorList: ["black", "yellow", "brown", "blue"],
     price: "102.00",
-    currency: "$",
+    currency: "LE",
     image_src: [
-      "/assets/images/4.jpeg",
-      "/assets/images/4.jpeg",
-      "/assets/images/4.jpeg",
-      "/assets/images/4.jpeg",
+      "/assets/images/Onion_soup.png",
+      "/assets/images/Onion_soup.png",
+      "/assets/images/Onion_soup.png",
+      "/assets/images/Onion_soup.png",
     ],
     score: 4,
     reviews: "500+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['Electronics ', 'Hot Deals']
+    categories:['Hot Deals', 'Soup']
   },
   {
-    id: "BLANKET",
+    id: "TomatoSoup",
     title: {
-      en: "JBL bluetooth",
-      ar: "جي بي ل"
+      en: "Tomato soup",
+      ar: "حساء الطماطم"
     },
-    colorList: ["grey", "yellow"],
     price: "67.50",
-    currency: "SR",
+    currency: "LE",
     image_src: [
-      "/assets/images/jbl.jpeg",
-      "/assets/images/jbl.jpeg",
-      "/assets/images/jbl.jpeg",
-      "/assets/images/jbl.jpeg",
+      "/assets/images/Tomato_soup.png",
+      "/assets/images/Tomato_soup.png",
+      "/assets/images/Tomato_soup.png",
+      "/assets/images/Tomato_soup.png",
     ],
     score: 2,
     reviews: "1000+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['New', 'Accessories ']
+    categories:['New', 'Soup']
   },
   { 
-    id: "CLEANINGBRUSH",
+    id: "FungiSalad",
     title: {
-      en: "Samsung",
-      ar: "سامسونج"
+      en: "Fungi salad",
+      ar: "سلطة فطر"
     },
-    colorList: ["purple", "green", "red"],
     price: "200.00",
-    currency: "SR",
+    currency: "LE",
     image_src: [
-      "/assets/images/mobile3.jpeg",
-      "/assets/images/mobile3.jpeg",
-      "/assets/images/mobile3.jpeg",
-      "/assets/images/mobile3.jpeg",
+      "/assets/images/Fungi_Salad.png",
+      "/assets/images/Fungi_Salad.png",
+      "/assets/images/Fungi_Salad.png",
+      "/assets/images/Fungi_Salad.png",
     ],
     score: 5,
     reviews: "10000+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['New', 'Hot Deals']
+    categories:['New', 'Hot Deals','Salad']
   },
     {
-    id: "BED1",
+    id: "SalmonSalad",
     title: {
-      en: "Air-Pods",
-      ar: " سماعات لاسيلكيه"
+      en: "Salmon salad",
+      ar: "سلطة السلمون"
     },
-    colorList: ["red", "yellow", "green"],
     price: "56.00",
     currency: "LE",
     image_src: [
-      "/assets/images/4.jpeg",
-      "/assets/images/4.jpeg",
-      "/assets/images/4.jpeg",
-      "/assets/images/4.jpeg",
+      "/assets/images/Salamon_salad.png",
+      "/assets/images/Salamon_salad.png",
+      "/assets/images/Salamon_salad.png",
+      "/assets/images/Salamon_salad.png",
     ],
     score: 3,
     reviews: "500+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['New', 'Hot Deals', 'Top Rated']
+    categories:['New', 'Hot Deals', 'Top Rated','Salad']
   },
   {
-    id: "UPPERBLANKET1",
+    id: "ZombieBurger",
     title: {
-      en: "Samsung",
-      ar: "سامسونج"
+      en: "Zombie burger",
+      ar: "زومبي برجر"
     },
-    colorList: ["black", "yellow", "brown", "blue"],
     price: "102.00",
-    currency: "$",
+    currency: "LE",
     image_src: [
-      "/assets/images/mobile1.jpeg",
-      "/assets/images/mobile1.jpeg",
-      "/assets/images/mobile1.jpeg",
-      "/assets/images/mobile1.jpeg",
+      "/assets/images/Zombie_burger.png",
+      "/assets/images/Zombie_burger.png",
+      "/assets/images/Zombie_burger.png",
+      "/assets/images/Zombie_burger.png",
     ],
     score: 4,
     reviews: "500+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['Electronics', 'Hot Deals']
+    categories:['Hot Deals','Burger']
   },
   {
-    id: "BLANKET1",
+    id: "KidsChickenStrips",
     title: {
-      en: "JBL bluetooth",
-      ar: "جي بي ل"
+      en: "Kids chicken strips",
+      ar: "شرائح دجاج اطفال"
     },
-    colorList: ["grey", "yellow"],
     price: "67.50",
-    currency: "SR",
+    currency: "LE",
     image_src: [
-      "/assets/images/jbl.jpeg",
-      "/assets/images/jbl.jpeg",
-      "/assets/images/jbl.jpeg",
-      "/assets/images/jbl.jpeg",
+      "/assets/images/Kids_chicken_strips.png",
+      "/assets/images/Kids_chicken_strips.png",
+      "/assets/images/Kids_chicken_strips.png",
+      "/assets/images/Kids_chicken_strips.png",
     ],
     score: 2,
     reviews: "1000+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['New', 'Accessories']
+    categories:['Strips']
   },
   { 
-    id: "CLEANINGBRUSH1",
+    id: "PhillyCheese",
     title: {
-      en: "Samsung",
-      ar: "سامسونج"
+      en: "Phily cheese bowl sandwich",
+      ar: "شطيرة جبن فيلي"
     },
-    colorList: ["purple", "green", "red"],
     price: "200.00",
-    currency: "SR",
+    currency: "LE",
     image_src: [
-      "/assets/images/mobile3.jpeg",
-      "/assets/images/mobile3.jpeg",
-      "/assets/images/mobile3.jpeg",
-      "/assets/images/mobile3.jpeg",
+      "/assets/images/Phily_cheese_Bowl_sandwich.png",
+      "/assets/images/Phily_cheese_Bowl_sandwich.png",
+      "/assets/images/Phily_cheese_Bowl_sandwich.png",
+      "/assets/images/Phily_cheese_Bowl_sandwich.png",
     ],
     score: 5,
     reviews: "10000+",
     favourite: false,
     size: "130*50",
     noAddedToBag: 0,
-    categories:['New', 'Hot Deals']
+    categories:['New', 'Hot Deals','Sandwich']
+  },
+  { 
+    id: "SmokedSalamon",
+    title: {
+      en: "Smoked salmon sandwich",
+      ar: "ساندوتش سلمون مدخن"
+    },
+    price: "200.00",
+    currency: "LE",
+    image_src: [
+      "/assets/images/Smoked_salmon_sandwich.png",
+      "/assets/images/Smoked_salmon_sandwich.png",
+      "/assets/images/Smoked_salmon_sandwich.png",
+      "/assets/images/Smoked_salmon_sandwich.png",
+    ],
+    score: 5,
+    reviews: "10000+",
+    favourite: false,
+    size: "130*50",
+    noAddedToBag: 0,
+    categories:['New', 'Hot Deals', 'Sandwich']
+  },
+  { 
+    id: "SteakAndMushroom",
+    title: {
+      en: "Steak and mushroom pasta",
+      ar: "باستا ستيك و مشروم"
+    },
+    price: "200.00",
+    currency: "LE",
+    image_src: [
+      "/assets/images/Steak_and_Mushroom_pasta.png",
+      "/assets/images/Steak_and_Mushroom_pasta.png",
+      "/assets/images/Steak_and_Mushroom_pasta.png",
+      "/assets/images/Steak_and_Mushroom_pasta.png",
+    ],
+    score: 5,
+    reviews: "10000+",
+    favourite: false,
+    size: "130*50",
+    noAddedToBag: 0,
+    categories:['New', 'Hot Deals', 'Pasta']
   }
 
 ];
